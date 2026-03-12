@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>西洋命理療癒組合 - Numerology & Crystals</title>
+    <title>您的靈魂水晶與命定香氣</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
@@ -13,9 +13,8 @@
         .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #e5e7eb; border-radius: 10px; }
         
-        /* 動畫效果 */
-        .fade-up { animation: fadeInUp 0.6s ease-out forwards; }
-        @keyframes fadeInUp {
+        .animate-fade-in { animation: fadeIn 0.7s ease-out forwards; }
+        @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
@@ -45,17 +44,19 @@
 
         <div id="input-panel" class="space-y-8">
             <div class="bg-[#fffcf5] p-8 rounded-[2rem] border border-amber-100/50 shadow-inner">
-                <label class="block text-[11px] font-bold text-amber-700/50 uppercase tracking-[0.25em] mb-6 text-center font-sans">輸入您的出生日期</label>
+                <label class="block text-[11px] font-bold text-amber-700/50 uppercase tracking-[0.25em] mb-6 text-center font-sans">
+                    輸入您的出生日期
+                </label>
                 <input type="date" id="birthday-input" class="w-full bg-transparent border-b-2 border-amber-100 px-2 py-4 text-2xl text-center focus:border-amber-400 outline-none transition-all text-[#5c564d]" />
             </div>
             <button onclick="handleCalculate()" id="submit-btn" class="w-full py-5 rounded-2xl bg-[#5c564d] hover:bg-[#4a453e] disabled:opacity-30 font-bold text-lg text-white transition-all shadow-xl flex items-center justify-center gap-3 group relative overflow-hidden">
-                <span id="btn-text" class="flex items-center gap-3">
+                <span id="btn-content" class="flex items-center gap-3">
                     <i data-lucide="compass" class="w-5 h-5 group-hover:rotate-45 transition-transform duration-500"></i>開啟能量地圖
                 </span>
             </button>
         </div>
 
-        <div id="result-panel" class="hidden grid grid-cols-1 gap-5 fade-up">
+        <div id="result-panel" class="hidden grid grid-cols-1 gap-5 animate-fade-in">
             <div id="card-num" class="group p-6 rounded-[2rem] border transition-all shadow-sm flex items-center gap-6">
                 <div class="w-16 h-16 rounded-full bg-white flex items-center justify-center border border-inherit shadow-sm flex-shrink-0 group-hover:scale-110 transition-transform">
                     <span id="val-num" class="text-3xl font-light"></span>
@@ -96,7 +97,7 @@
             </div>
 
             <div class="group bg-[#f7fdf9] p-6 rounded-[2.5rem] border border-emerald-100 shadow-md flex items-center gap-6">
-                <div class="w-16 h-16 rounded-full bg-white flex items-center justify-center border border-emerald-50 shadow-sm flex-shrink-0">
+                <div class="w-16 h-16 rounded-full bg-white flex items-center justify-center border border-emerald-50 shadow-sm flex-shrink-0 group-hover:scale-110 transition-transform">
                     <i data-lucide="leaf" class="w-8 h-8 text-emerald-500"></i>
                 </div>
                 <div class="flex-1">
@@ -110,10 +111,10 @@
             </div>
 
             <div class="flex gap-3 mt-4">
-                <button onclick="resetApp()" class="flex-1 py-4 bg-amber-50 rounded-2xl text-amber-800/60 hover:text-amber-800 transition-colors text-xs font-bold tracking-widest uppercase flex items-center justify-center gap-2 border border-amber-100">
+                <button onclick="resetApp()" class="flex-1 py-4 bg-amber-50 rounded-2xl text-amber-800/60 hover:text-amber-800 transition-colors text-xs font-bold tracking-widest uppercase flex items-center justify-center gap-2 border border-amber-100 font-sans">
                     <i data-lucide="refresh-cw" class="w-3 h-3"></i> 再算一次
                 </button>
-                <button onclick="openLibrary()" class="flex-1 py-4 bg-[#5c564d] rounded-2xl text-white hover:bg-[#4a453e] transition-colors text-xs font-bold tracking-widest uppercase flex items-center justify-center gap-2 shadow-lg">
+                <button onclick="openLibrary()" class="flex-1 py-4 bg-[#5c564d] rounded-2xl text-white hover:bg-[#4a453e] transition-colors text-xs font-bold tracking-widest uppercase flex items-center justify-center gap-2 shadow-lg font-sans">
                     <i data-lucide="book-open" class="w-3 h-3"></i> 水晶百科
                 </button>
             </div>
@@ -126,32 +127,26 @@
     </div>
 
     <div id="library-modal" class="hidden fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/40 backdrop-blur-sm">
-        <div class="bg-white w-full max-w-2xl h-[90vh] sm:h-[80vh] rounded-t-[3rem] sm:rounded-[3rem] shadow-2xl flex flex-col overflow-hidden border border-amber-100 relative">
+        <div class="bg-white w-full max-w-2xl h-[90vh] sm:h-[80vh] rounded-t-[3rem] sm:rounded-[3rem] shadow-2xl flex flex-col overflow-hidden relative border border-amber-100">
             <div class="p-6 border-b border-amber-50 flex items-center justify-between bg-[#fffcf5]">
                 <div class="flex items-center gap-3">
-                    <i data-lucide="book-open" class="w-5 h-5 text-amber-600"></i>
-                    <h2 class="text-xl font-bold text-[#5c564d]">能量百科全書</h2>
+                    <div class="p-2 bg-amber-100 rounded-full"><i data-lucide="book-open" class="w-5 h-5 text-amber-600"></i></div>
+                    <h2 class="text-xl font-bold text-[#5c564d]">水晶百科全書</h2>
                 </div>
                 <button onclick="closeLibrary()" class="p-2 hover:bg-amber-100 rounded-full"><i data-lucide="x" class="w-6 h-6 text-[#8e8578]"></i></button>
             </div>
-            
             <div class="flex p-2 bg-amber-50/50 gap-1">
                 <button onclick="switchTab('num')" id="tab-num" class="flex-1 py-3 rounded-2xl text-xs font-bold tracking-wider transition-all bg-white text-amber-700 shadow-sm border border-amber-100">生命靈數</button>
                 <button onclick="switchTab('zodiac')" id="tab-zodiac" class="flex-1 py-3 rounded-2xl text-xs font-bold tracking-wider transition-all text-[#8e8578]">12星座</button>
                 <button onclick="switchTab('animal')" id="tab-animal" class="flex-1 py-3 rounded-2xl text-xs font-bold tracking-wider transition-all text-[#8e8578]">12生肖</button>
             </div>
-
-            <div id="library-content" class="flex-1 overflow-y-auto p-6 space-y-4 custom-scrollbar">
-                </div>
-            
-            <div class="p-6 bg-[#faf9f6] text-center border-t border-amber-50">
-                <p class="text-[10px] text-amber-900/30 uppercase tracking-widest font-sans font-bold italic">Cosmic Knowledge Repository</p>
-            </div>
+            <div id="library-content" class="flex-1 overflow-y-auto p-6 space-y-4 custom-scrollbar"></div>
+            <div class="p-6 bg-[#faf9f6] text-center"><p class="text-[10px] text-amber-900/30 uppercase tracking-widest font-sans font-bold italic">Cosmic Knowledge Repository</p></div>
         </div>
     </div>
 
     <script>
-        // 資料設定 (引用自 source: 2, 4, 7, 9, 10)
+        // 核心資料映射 [cite: 59-67]
         const COLOR_MAP = {
             red: { color: "text-red-600", border: "border-red-200", bgColor: "bg-[#fff5f5]" },
             orange: { color: "text-orange-500", border: "border-orange-200", bgColor: "bg-[#fffaf0]" },
@@ -179,52 +174,47 @@
             9: { name: "白水晶", key: "大愛力", benefit: "回歸純粹，淨化負能量，連結高我與慈悲心。", oils: "茶樹、檸檬、檀木", ...COLOR_MAP.white }
         };
 
+        const CHINESE_ZODIAC_LIST = ["鼠", "牛", "虎", "兔", "龍", "蛇", "馬", "羊", "猴", "雞", "狗", "豬"];
         const CHINESE_ZODIAC_DATA = {
             "鼠": { crystal: "黑曜石", benefit: "穩定情緒，防太歲與負能量", ...COLOR_MAP.black },
-            "牛": { crystal: "紅瑪瑙", benefit: "提升氣場、加強行動力與自信。", ...COLOR_MAP.red },
+            "牛": { crystal: "紅瑪瑙", benefit: "提升氣場、加強行動力與自信，守財、提升人緣。", ...COLOR_MAP.red },
             "虎": { crystal: "天河石", benefit: "增強果斷力、領導力，招財避邪。", ...COLOR_MAP.cyan },
             "兔": { crystal: "東菱玉", benefit: "能安定內心、舒緩壓力、提升勇氣。", ...COLOR_MAP.green },
-            "龍": { crystal: "黃水晶", benefit: "活絡人際關係，增加財運助力。", ...COLOR_MAP.yellow },
-            "蛇": { crystal: "紫水晶", benefit: "提升智慧、緩解焦慮和悲觀。", ...COLOR_MAP.purple },
-            "馬": { crystal: "草莓晶", benefit: "提升人際魅力、招桃花與好姻緣。", ...COLOR_MAP.pink },
+            "龍": { crystal: "黃水晶", benefit: "提升效率，活絡人際關係，增加財運與貴人助力。", ...COLOR_MAP.yellow },
+            "蛇": { crystal: "紫水晶", benefit: "鎮定情緒、提升智慧、緩解焦慮和悲觀。", ...COLOR_MAP.purple },
+            "馬": { crystal: "粉晶", benefit: "提升人際魅力、招桃花與好姻緣，招來貴人。", ...COLOR_MAP.pink },
             "羊": { crystal: "虎眼石", benefit: "提升自信、財運、穩定氣場。", ...COLOR_MAP.yellow },
-            "猴": { crystal: "白水晶", benefit: "淨化負氣場，增加創造力。", ...COLOR_MAP.white },
-            "雞": { crystal: "太陽石", benefit: "帶來正向能量、招財及辟邪。", ...COLOR_MAP.orange },
-            "狗": { crystal: "茶晶", benefit: "幫助思緒沉靜，穩定情緒。", ...COLOR_MAP.brown },
-            "豬": { crystal: "海藍寶", benefit: "舒緩情緒、增強表達能力。", ...COLOR_MAP.blue }
+            "猴": { crystal: "白水晶", benefit: "淨化身體負氣場，增加幸福感與創造力。", ...COLOR_MAP.white },
+            "雞": { crystal: "太陽石", benefit: "帶來正向能量、提升自信、招財及辟邪防小人。", ...COLOR_MAP.orange },
+            "狗": { crystal: "茶晶", benefit: "幫助思緒沉靜，穩定情緒，增強行動力與安全感。", ...COLOR_MAP.brown },
+            "豬": { crystal: "海藍寶", benefit: "舒緩情緒、焦慮，並增強表達能力、冷靜思緒。", ...COLOR_MAP.blue }
         };
 
         const ZODIAC_DATA = [
-            { name: "摩羯座", start: "01-01", end: "01-19", crystal: "茶晶", benefit: "助事業發展，吸收負能量。", ...COLOR_MAP.brown },
-            { name: "水瓶座", start: "01-20", end: "02-18", crystal: "天河石", benefit: "激發創意靈感，增強直覺。", ...COLOR_MAP.cyan },
-            { name: "雙魚座", start: "02-19", end: "03-20", crystal: "紫水晶", benefit: "保護心靈，加強自癒能力。", ...COLOR_MAP.purple },
-            { name: "牡羊座", start: "03-21", end: "04-19", crystal: "紅瑪瑙", benefit: "增強行動力、勇氣與領導力。", ...COLOR_MAP.red },
-            { name: "金牛座", start: "04-20", end: "05-20", crystal: "東菱玉", benefit: "強化財運，提升愛與包容力。", ...COLOR_MAP.green },
-            { name: "雙子座", start: "05-21", end: "06-21", crystal: "黃水晶", benefit: "提升表達，減少焦慮不安。", ...COLOR_MAP.yellow },
-            { name: "巨蟹座", start: "06-22", end: "07-22", crystal: "月光石", benefit: "安撫敏感情緒，護佑情感。", ...COLOR_MAP.white },
-            { name: "獅子座", start: "07-23", end: "08-22", crystal: "太陽石", benefit: "提升自信氣場與領導魅力。", ...COLOR_MAP.orange },
-            { name: "處女座", start: "08-23", end: "09-22", crystal: "海藍寶", benefit: "增強智慧，平衡過度完美。", ...COLOR_MAP.cyan },
-            { name: "天秤座", start: "09-23", end: "10-23", crystal: "粉晶", benefit: "提升人緣、平衡優柔寡斷。", ...COLOR_MAP.pink },
-            { name: "天蠍座", start: "10-24", end: "11-22", crystal: "黑曜石", benefit: "轉化情緒壓力，提供強大保護。", ...COLOR_MAP.black },
-            { name: "射手座", start: "11-23", end: "12-21", crystal: "青金石", benefit: "開闊視野，提升直覺視野。", ...COLOR_MAP.indigo },
-            { name: "摩羯座", start: "12-22", end: "12-31", crystal: "茶晶", benefit: "增強體力、穩定情緒。", ...COLOR_MAP.brown }
+            { name: "摩羯座", start: "01-01", end: "01-19", crystal: "茶晶", benefit: "增強體力、穩定情緒，助事業發展，吸收負能量。", ...COLOR_MAP.brown },
+            { name: "水瓶座", start: "01-20", end: "02-18", crystal: "天河石", benefit: "激發創意靈感，保護獨特思想，增強直覺與靈性溝通。", ...COLOR_MAP.cyan },
+            { name: "雙魚座", start: "02-19", end: "03-20", crystal: "紫水晶", benefit: "提升思緒清晰度，保護受外界影響的心靈，加強自癒能力。", ...COLOR_MAP.purple },
+            { name: "牡羊座", start: "03-21", end: "04-19", crystal: "紅瑪瑙", benefit: "增強行動力、勇氣與領導力，穩定衝動個性。", ...COLOR_MAP.red },
+            { name: "金牛座", start: "04-20", end: "05-20", crystal: "東菱玉", benefit: "強化財運、穩定性，提升愛與包容力，增加安全感。", ...COLOR_MAP.green },
+            { name: "雙子座", start: "05-21", end: "06-21", crystal: "黃水晶", benefit: "提升溝通表達能力，減少因思慮過多而產生的焦慮與不安。", ...COLOR_MAP.yellow },
+            { name: "巨蟹座", start: "06-22", end: "07-22", crystal: "白水晶", benefit: "淨化心靈、平衡情緒、釐清思緒，並增強直覺與保護能力。", ...COLOR_MAP.white },
+            { name: "獅子座", start: "07-23", end: "08-22", crystal: "太陽石", benefit: "提升自信、氣場與領導魅力，使心境安穩。", ...COLOR_MAP.orange },
+            { name: "處女座", start: "08-23", end: "09-22", crystal: "海藍寶", benefit: "專注思考、增強智慧，舒緩緊張，平衡過度完美。", ...COLOR_MAP.cyan },
+            { name: "天秤座", start: "09-23", end: "10-23", crystal: "粉晶", benefit: "提升人緣、帶來愛情，平衡優柔寡斷，增加自信。", ...COLOR_MAP.pink },
+            { name: "天蠍座", start: "10-24", end: "11-22", crystal: "黑曜石", benefit: "轉化情緒壓力，增強洞察力，提供強大保護。", ...COLOR_MAP.black },
+            { name: "射手座", start: "11-23", end: "12-21", crystal: "青金石", benefit: "守護旅途平安，提升直覺，開闊視野並緩解焦慮。", ...COLOR_MAP.indigo },
+            { name: "摩羯座", start: "12-22", end: "12-31", crystal: "茶晶", benefit: "增強體力、穩定情緒，助事業發展，吸收負能量。", ...COLOR_MAP.brown }
         ];
 
-        const CHINESE_LIST = ["鼠", "牛", "虎", "兔", "龍", "蛇", "馬", "羊", "猴", "雞", "狗", "豬"];
-
-        // 初始化
         lucide.createIcons();
 
-        // 核心運算邏輯 (轉化自 source: 13, 14, 15, 16)
+        // 核心運算邏輯 [cite: 70-73]
         function handleCalculate() {
             const birthday = document.getElementById('birthday-input').value;
             if (!birthday) return;
 
-            // Loading 狀態
-            const btn = document.getElementById('submit-btn');
-            const btnText = document.getElementById('btn-text');
-            btn.disabled = true;
-            btnText.innerHTML = '<i data-lucide="refresh-cw" class="animate-spin-slow w-6 h-6"></i>';
+            const btnContent = document.getElementById('btn-content');
+            btnContent.innerHTML = '<i data-lucide="refresh-cw" class="animate-spin-slow w-6 h-6"></i>';
             lucide.createIcons();
 
             setTimeout(() => {
@@ -233,75 +223,49 @@
                 const month = date.getMonth() + 1;
                 const day = date.getDate();
 
-                // 1. 生命靈數
+                // 1. 生命靈數 [cite: 71]
                 const digits = birthday.replace(/\D/g, '').split('').map(Number);
                 let numSum = digits.reduce((a, b) => a + b, 0);
                 while (numSum > 9) numSum = numSum.toString().split('').map(Number).reduce((a, b) => a + b, 0);
-                const nData = NUMEROLOGY_DATA[numSum];
+                const n = NUMEROLOGY_DATA[numSum];
 
-                // 2. 西洋星座
+                // 2. 西洋星座 [cite: 72]
                 const md = `${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
-                const zData = ZODIAC_DATA.find(z => {
-                    if (z.start <= z.end) return md >= z.start && md <= z.end;
-                    return md >= z.start || md <= z.end;
-                });
+                const z = ZODIAC_DATA.find(i => i.start <= i.end ? (md >= i.start && md <= i.end) : (md >= i.start || md <= i.end));
 
-                // 3. 生肖
-                const animal = CHINESE_LIST[(year - 1900) % 12];
-                const aData = CHINESE_ZODIAC_DATA[animal];
+                // 3. 東方生肖 [cite: 72]
+                const animal = CHINESE_ZODIAC_LIST[(year - 1900) % 12];
+                const a = CHINESE_ZODIAC_DATA[animal];
 
-                // 更新 UI
-                updateUI(numSum, nData, zData, animal, aData);
-                
-                // 切換面板
+                // 更新 UI 配色與內容 [cite: 81-91]
+                updateCard('card-num', n, 'val-num', numSum, 'name-num', n.name, 'benefit-num', n.benefit, 'label-num', `靈數 ${n.key}`);
+                updateCard('card-zodiac', z, null, null, 'crystal-zodiac', z.crystal, 'benefit-zodiac', z.benefit, 'label-zodiac', z.name);
+                updateCard('card-animal', a, 'val-animal', animal, 'crystal-animal', a.crystal, 'benefit-animal', a.benefit, 'label-animal', "生肖對應");
+
+                // 精油與描述 [cite: 90, 91]
+                const oilTags = document.getElementById('oil-tags');
+                oilTags.innerHTML = n.oils.split('、').map(o => `<span class="bg-white text-emerald-700 text-xs px-3 py-1.5 rounded-full border border-emerald-100 font-bold shadow-sm">${o}</span>`).join('');
+                document.getElementById('oil-desc').innerText = `生命靈數 ${numSum} 對應精油。協助調和能量場。`;
+
                 document.getElementById('input-panel').classList.add('hidden');
                 document.getElementById('result-panel').classList.remove('hidden');
-                
-                // 恢復按鈕
-                btn.disabled = false;
-                btnText.innerHTML = '<i data-lucide="compass" class="w-5 h-5"></i>開啟能量地圖';
+                btnContent.innerHTML = '<i data-lucide="compass" class="w-5 h-5"></i>開啟能量地圖';
                 lucide.createIcons();
             }, 800);
         }
 
-        function updateUI(num, n, z, animal, a) {
-            // 生命靈數
-            const cardNum = document.getElementById('card-num');
-            cardNum.className = `group ${n.bgColor} p-6 rounded-[2rem] border ${n.border} transition-all shadow-sm flex items-center gap-6`;
-            document.getElementById('val-num').innerText = num;
-            document.getElementById('val-num').className = `text-3xl font-light ${n.color}`;
-            document.getElementById('label-num').className = `text-[10px] ${n.color} opacity-70 font-bold tracking-[0.2em] uppercase mb-1 flex items-center gap-2 font-sans`;
-            document.getElementById('key-num').innerText = `靈數 ${n.key}`;
-            document.getElementById('name-num').innerText = n.name;
-            document.getElementById('name-num').className = `text-2xl font-bold ${n.color} mb-0.5`;
-            document.getElementById('benefit-num').innerText = n.benefit;
-
-            // 星座
-            const cardZod = document.getElementById('card-zodiac');
-            cardZod.className = `group ${z.bgColor} p-6 rounded-[2rem] border ${z.border} transition-all shadow-sm flex items-center gap-6`;
-            document.getElementById('icon-zodiac').className = `w-8 h-8 ${z.color}`;
-            document.getElementById('label-zodiac').className = `text-[10px] ${z.color} opacity-70 font-bold tracking-[0.2em] uppercase mb-1 flex items-center gap-2 font-sans`;
-            document.getElementById('name-zodiac').innerText = z.name;
-            document.getElementById('crystal-zodiac').innerText = z.crystal;
-            document.getElementById('crystal-zodiac').className = `text-2xl font-bold ${z.color} mb-0.5`;
-            document.getElementById('benefit-zodiac').innerText = z.benefit;
-
-            // 生肖
-            const cardAni = document.getElementById('card-animal');
-            cardAni.className = `group ${a.bgColor} p-6 rounded-[2rem] border ${a.border} transition-all shadow-sm flex items-center gap-6`;
-            document.getElementById('val-animal').innerText = animal;
-            document.getElementById('val-animal').className = `text-2xl font-bold ${a.color} opacity-60`;
-            document.getElementById('label-animal').className = `text-[10px] ${a.color} opacity-70 font-bold tracking-[0.2em] uppercase mb-1 flex items-center gap-2 font-sans`;
-            document.getElementById('crystal-animal').innerText = a.crystal;
-            document.getElementById('crystal-animal').className = `text-2xl font-bold ${a.color} mb-0.5`;
-            document.getElementById('benefit-animal').innerText = a.benefit;
-
-            // 精油標籤
-            const tagContainer = document.getElementById('oil-tags');
-            tagContainer.innerHTML = n.oils.split('、').map(oil => `
-                <span class="bg-white text-emerald-700 text-xs px-3 py-1.5 rounded-full border border-emerald-100 font-bold shadow-sm transition-transform hover:-translate-y-0.5">${oil}</span>
-            `).join('');
-            document.getElementById('oil-desc').innerText = `生命靈數 ${num} 對應精油。協助落實與調和能量場。`;
+        function updateCard(cardId, data, valId, val, titleId, title, descId, desc, labelId, labelText) {
+            const card = document.getElementById(cardId);
+            card.className = `group ${data.bgColor} p-6 rounded-[2rem] border ${data.border} transition-all shadow-sm flex items-center gap-6`;
+            if (valId) document.getElementById(valId).innerText = val;
+            if (valId) document.getElementById(valId).className = valId === 'val-animal' ? `text-2xl font-bold ${data.color} opacity-60` : `text-3xl font-light ${data.color}`;
+            document.getElementById(titleId).innerText = title;
+            document.getElementById(titleId).className = `text-2xl font-bold ${data.color} mb-0.5`;
+            document.getElementById(descId).innerText = desc;
+            document.getElementById(labelId).className = `text-[10px] ${data.color} opacity-70 font-bold tracking-[0.2em] uppercase mb-1 flex items-center gap-2 font-sans`;
+            const labelSpan = document.getElementById(labelId).querySelector('span') || document.getElementById(labelId).childNodes[2];
+            if (labelSpan.nodeType === 3) document.getElementById(labelId).lastChild.textContent = " " + labelText;
+            else labelSpan.innerText = labelText;
         }
 
         function resetApp() {
@@ -310,68 +274,41 @@
             document.getElementById('birthday-input').value = '';
         }
 
-        // 百科全書邏輯 (轉化自 source: 42, 45, 47)
+        // 百科全書切換邏輯 [cite: 99-111]
         function openLibrary() {
             document.getElementById('library-modal').classList.remove('hidden');
             switchTab('num');
         }
 
-        function closeLibrary() {
-            document.getElementById('library-modal').classList.add('hidden');
-        }
+        function closeLibrary() { document.getElementById('library-modal').classList.add('hidden'); }
 
         function switchTab(tabId) {
-            // 切換按鈕樣式
             ['num', 'zodiac', 'animal'].forEach(t => {
                 const btn = document.getElementById(`tab-${t}`);
-                if (t === tabId) {
-                    btn.className = "flex-1 py-3 rounded-2xl text-xs font-bold tracking-wider transition-all bg-white text-amber-700 shadow-sm border border-amber-100";
-                } else {
-                    btn.className = "flex-1 py-3 rounded-2xl text-xs font-bold tracking-wider transition-all text-[#8e8578]";
-                }
+                btn.className = `flex-1 py-3 rounded-2xl text-xs font-bold tracking-wider transition-all ${t === tabId ? 'bg-white text-amber-700 shadow-sm border border-amber-100' : 'text-[#8e8578]'}`;
             });
 
             const content = document.getElementById('library-content');
             let html = '';
-
             if (tabId === 'num') {
                 Object.entries(NUMEROLOGY_DATA).forEach(([key, d]) => {
-                    html += `
-                        <div class="p-5 rounded-3xl border ${d.border} ${d.bgColor} flex gap-5 items-start">
-                            <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center ${d.color} font-bold text-xl shadow-sm border border-inherit flex-shrink-0">${key}</div>
-                            <div>
-                                <h4 class="text-lg font-bold ${d.color} flex items-center gap-2">${d.name} <span class="text-[10px] bg-white px-2 py-0.5 rounded-full border border-inherit opacity-60"> ${d.key}</span></h4>
-                                <p class="text-[#5c564d] text-sm mt-1">${d.benefit}</p>
-                                <p class="text-[#8e8578] text-[10px] mt-2 italic">建議精油：${d.oils}</p>
-                            </div>
-                        </div>`;
+                    html += `<div class="p-5 rounded-3xl border ${d.border} ${d.bgColor} flex gap-5 items-start">
+                        <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center ${d.color} font-bold text-xl shadow-sm border border-inherit flex-shrink-0">${key}</div>
+                        <div><h4 class="text-lg font-bold ${d.color} flex items-center gap-2">${d.name} <span class="text-[10px] bg-white px-2 py-0.5 rounded-full border border-inherit opacity-60"> ${d.key}</span></h4>
+                        <p class="text-[#5c564d] text-sm mt-1">${d.benefit}</p><p class="text-[#8e8578] text-[10px] mt-2 italic">建議精油：${d.oils}</p></div></div>`;
                 });
             } else if (tabId === 'zodiac') {
                 ZODIAC_DATA.filter((v, i, a) => a.findIndex(t => (t.name === v.name)) === i).forEach(d => {
-                    html += `
-                        <div class="p-5 rounded-3xl border ${d.border} ${d.bgColor} flex gap-5 items-start">
-                            <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center ${d.color} flex-shrink-0 border border-inherit shadow-sm">
-                                <i data-lucide="sun" class="w-6 h-6"></i>
-                            </div>
-                            <div class="flex-1">
-                                <h4 class="text-lg font-bold ${d.color}">${d.name} × ${d.crystal}</h4>
-                                <p class="text-[#5c564d] text-sm mt-1 leading-relaxed">${d.benefit}</p>
-                            </div>
-                        </div>`;
+                    html += `<div class="p-5 rounded-3xl border ${d.border} ${d.bgColor} flex gap-5 items-start">
+                        <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center ${d.color} flex-shrink-0 border border-inherit shadow-sm"><i data-lucide="sun" class="w-6 h-6"></i></div>
+                        <div class="flex-1"><h4 class="text-lg font-bold ${d.color}">${d.name} × ${d.crystal}</h4><p class="text-[#5c564d] text-sm mt-1 leading-relaxed">${d.benefit}</p></div></div>`;
                 });
             } else {
-                CHINESE_LIST.forEach(name => {
+                CHINESE_ZODIAC_LIST.forEach(name => {
                     const d = CHINESE_ZODIAC_DATA[name];
-                    html += `
-                        <div class="p-5 rounded-3xl border ${d.border} ${d.bgColor} flex gap-5 items-start">
-                            <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center flex-shrink-0 border border-inherit shadow-sm">
-                                <span class="text-xl font-bold ${d.color} opacity-60">${name}</span>
-                            </div>
-                            <div class="flex-1">
-                                <h4 class="text-lg font-bold ${d.color}">${d.crystal}</h4>
-                                <p class="text-[#5c564d] text-sm mt-1 leading-relaxed">${d.benefit}</p>
-                            </div>
-                        </div>`;
+                    html += `<div class="p-5 rounded-3xl border ${d.border} ${d.bgColor} flex gap-5 items-start">
+                        <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center flex-shrink-0 border border-inherit shadow-sm"><span class="text-xl font-bold ${d.color} opacity-60">${name}</span></div>
+                        <div class="flex-1"><h4 class="text-lg font-bold ${d.color}">${d.crystal}</h4><p class="text-[#5c564d] text-sm mt-1 leading-relaxed">${d.benefit}</p></div></div>`;
                 });
             }
             content.innerHTML = html;
