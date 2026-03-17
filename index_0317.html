@@ -39,15 +39,15 @@
                 </div>
             </div>
             <h1 class="text-3xl font-bold tracking-[0.15em] text-[#5c564d]">您的靈魂水晶與命定香氣</h1>
-            <p class="text-amber-600/50 mt-3 text-xs tracking-[0.4em] uppercase font-sans font-bold">Spirit · Earth · Essence</p>
+            <p class="text-amber-600/50 mt-3 text-xs tracking-[0.4em] uppercase font-sans font-bold text-center">Spirit · Earth · Essence</p>
         </div>
 
         <div id="input-panel" class="space-y-8">
-            <div class="bg-[#fffcf5] p-8 rounded-[2rem] border border-amber-100/50 shadow-inner">
-                <label class="block text-[11px] font-bold text-amber-700/50 uppercase tracking-[0.25em] mb-6 text-center font-sans">
-                    輸入您的出生日期
+            <div class="bg-[#fffdf5] p-10 rounded-[2.5rem] border border-amber-100/50 shadow-inner">
+                <label class="block text-[11px] font-bold text-amber-800/40 uppercase tracking-[0.3em] mb-8 text-center font-sans">
+                    Select Your Birth Date
                 </label>
-                <input type="date" id="birthday-input" class="w-full bg-transparent border-b-2 border-amber-100 px-2 py-4 text-2xl text-center focus:border-amber-400 outline-none transition-all text-[#5c564d]" />
+                <input type="date" id="birthday-input" class="w-full bg-transparent border-b border-amber-200/50 px-2 py-4 text-2xl text-center focus:border-amber-400 outline-none transition-all text-[#5c564d] font-sans" />
             </div>
             <button onclick="handleCalculate()" id="submit-btn" class="w-full py-6 rounded-3xl bg-[#5c564d] hover:bg-[#4a453e] disabled:opacity-30 font-bold text-lg text-white transition-all shadow-xl shadow-stone-200 flex items-center justify-center gap-3 group relative overflow-hidden">
                 <span id="btn-content" class="flex items-center gap-3">
@@ -60,20 +60,20 @@
             <div id="results-container" class="space-y-10">
                 </div>
 
-            <div class="flex gap-4 mt-4">
-                <button onclick="resetApp()" class="flex-1 py-4 bg-amber-50 rounded-2xl text-amber-800/60 hover:text-amber-800 transition-colors text-xs font-bold tracking-widest uppercase flex items-center justify-center gap-2 border border-amber-100 font-sans">
-                    <i data-lucide="refresh-cw" class="w-3 h-3"></i> 再算一次
+            <div class="flex gap-4 mt-8">
+                <button onclick="resetApp()" class="flex-1 py-5 bg-stone-50 rounded-[2rem] text-stone-400 hover:text-stone-600 transition-colors text-xs font-bold tracking-widest uppercase flex items-center justify-center gap-2">
+                    <i data-lucide="refresh-cw" class="w-3 h-3"></i> Reset
                 </button>
-                <button onclick="openLibrary()" class="flex-1 py-4 bg-[#5c564d] rounded-2xl text-white hover:bg-[#4a453e] transition-colors text-xs font-bold tracking-widest uppercase flex items-center justify-center gap-2 shadow-lg font-sans">
-                    <i data-lucide="book-open" class="w-3 h-3"></i> 水晶百科
+                <button onclick="openLibrary()" class="flex-[2] py-5 bg-[#5c564d] rounded-[2rem] text-white hover:bg-[#4a453e] transition-colors text-xs font-bold tracking-widest uppercase flex items-center justify-center gap-2 shadow-lg shadow-stone-200">
+                    <i data-lucide="book-open" class="w-4 h-4"></i> 探索能量圖鑑
                 </button>
             </div>
         </div>
 
-        <div class="mt-16 pt-10 border-t border-stone-100 text-center">
-            <p class="text-[10px] text-stone-300 tracking-[0.5em] uppercase font-sans font-bold mb-3">Natural Resonance Guide</p>
+        <div class="mt-12 pt-8 border-t border-stone-100 text-center">
+            <p class="text-[11px] text-stone-300 tracking-[0.4em] uppercase font-sans font-bold mb-3">Natural Resonance Guide</p>
             <p class="text-[10px] text-stone-400/60 max-w-[280px] mx-auto leading-relaxed italic">
-                "The earth has music for those who listen. Align your soul with crystals and the breath of nature."
+                "Align your soul with crystals and the breath of nature."
             </p>
         </div>
     </div>
@@ -100,20 +100,20 @@
     </div>
 
     <script>
-        // --- 資料映射 [cite: 47-60] ---
+        // --- 資料映射 [cite: 48, 49, 54, 56, 58, 61] ---
         const COLOR_MAP = {
-            red: { color: "text-red-600", border: "border-red-200", bgColor: "bg-[#fffafa]", cardBg: "from-white to-red-50/30", accent: "bg-red-500", lightAccent: "bg-red-50" },
-            orange: { color: "text-orange-600", border: "border-orange-200", bgColor: "bg-[#fffaf5]", cardBg: "from-white to-orange-50/30", accent: "bg-orange-500", lightAccent: "bg-orange-50" },
-            yellow: { color: "text-yellow-700", border: "border-yellow-200", bgColor: "bg-[#fffef5]", cardBg: "from-white to-yellow-50/40", accent: "bg-yellow-500", lightAccent: "bg-yellow-50" },
-            green: { color: "text-emerald-700", border: "border-emerald-200", bgColor: "bg-[#f7fdf9]", cardBg: "from-white to-emerald-50/30", accent: "bg-emerald-500", lightAccent: "bg-emerald-50" },
-            cyan: { color: "text-cyan-600", border: "border-cyan-100", bgColor: "bg-[#f0fdff]", cardBg: "from-white to-cyan-50/30", accent: "bg-cyan-500", lightAccent: "bg-cyan-50" },
-            blue: { color: "text-blue-700", border: "border-blue-100", bgColor: "bg-[#f5faff]", cardBg: "from-white to-blue-50/30", accent: "bg-blue-500", lightAccent: "bg-blue-50" },
-            indigo: { color: "text-indigo-700", border: "border-indigo-200", bgColor: "bg-[#f5f8ff]", cardBg: "from-white to-indigo-50/30", accent: "bg-indigo-500", lightAccent: "bg-indigo-50" },
-            purple: { color: "text-purple-700", border: "border-purple-200", bgColor: "bg-[#faf5ff]", cardBg: "from-white to-purple-50/30", accent: "bg-purple-500", lightAccent: "bg-purple-50" },
-            pink: { color: "text-pink-600", border: "border-pink-100", bgColor: "bg-[#fffafb]", cardBg: "from-white to-pink-50/40", accent: "bg-pink-500", lightAccent: "bg-pink-50" },
-            white: { color: "text-slate-600", border: "border-slate-200", bgColor: "bg-[#fcfcfc]", cardBg: "from-white to-slate-50/50", accent: "bg-slate-400", lightAccent: "bg-slate-100" },
-            black: { color: "text-zinc-800", border: "border-zinc-300", bgColor: "bg-[#f4f4f5]", cardBg: "from-white to-zinc-100/50", accent: "bg-zinc-700", lightAccent: "bg-zinc-200" },
-            brown: { color: "text-stone-700", border: "border-stone-300", bgColor: "bg-[#f9f8f6]", cardBg: "from-white to-stone-100/40", accent: "bg-stone-600", lightAccent: "bg-stone-100" }
+            red: { color: "text-red-600", border: "border-red-200", bgColor: "bg-[#fffafa]", accent: "bg-red-500", lightAccent: "bg-red-50" },
+            orange: { color: "text-orange-600", border: "border-orange-200", bgColor: "bg-[#fffaf5]", accent: "bg-orange-500", lightAccent: "bg-orange-50" },
+            yellow: { color: "text-yellow-700", border: "border-yellow-200", bgColor: "bg-[#fffef5]", accent: "bg-yellow-500", lightAccent: "bg-yellow-50" },
+            green: { color: "text-emerald-700", border: "border-emerald-200", bgColor: "bg-[#f7fdf9]", accent: "bg-emerald-500", lightAccent: "bg-emerald-50" },
+            cyan: { color: "text-cyan-600", border: "border-cyan-100", bgColor: "bg-[#f0fdff]", accent: "bg-cyan-500", lightAccent: "bg-cyan-50" },
+            blue: { color: "text-blue-700", border: "border-blue-100", bgColor: "bg-[#f5faff]", accent: "bg-blue-500", lightAccent: "bg-blue-50" },
+            indigo: { color: "text-indigo-700", border: "border-indigo-200", bgColor: "bg-[#f5f8ff]", accent: "bg-indigo-500", lightAccent: "bg-indigo-50" },
+            purple: { color: "text-purple-700", border: "border-purple-200", bgColor: "bg-[#faf5ff]", accent: "bg-purple-500", lightAccent: "bg-purple-50" },
+            pink: { color: "text-pink-600", border: "border-pink-100", bgColor: "bg-[#fffafb]", accent: "bg-pink-500", lightAccent: "bg-pink-50" },
+            white: { color: "text-slate-600", border: "border-slate-200", bgColor: "bg-[#fcfcfc]", accent: "bg-slate-400", lightAccent: "bg-slate-100" },
+            black: { color: "text-zinc-800", border: "border-zinc-300", bgColor: "bg-[#f4f4f5]", accent: "bg-zinc-700", lightAccent: "bg-zinc-200" },
+            brown: { color: "text-stone-700", border: "border-stone-300", bgColor: "bg-[#f9f8f6]", accent: "bg-stone-600", lightAccent: "bg-stone-100" }
         };
 
         const NUMEROLOGY_DATA = {
@@ -161,10 +161,10 @@
 
         const CHINESE_ZODIAC_LIST = ["鼠", "牛", "虎", "兔", "龍", "蛇", "馬", "羊", "猴", "雞", "狗", "豬"];
 
-        // 初始化圖示
+        // 初始化圖示 [cite: 47]
         lucide.createIcons();
 
-        // --- 核心邏輯 [cite: 63-71] ---
+        // --- 核心邏輯 [cite: 63, 64, 65] ---
         function handleCalculate() {
             const birthday = document.getElementById('birthday-input').value;
             if (!birthday) return;
@@ -185,18 +185,19 @@
                 while (numSum > 9) numSum = numSum.toString().split('').map(Number).reduce((a, b) => a + b, 0);
                 const nData = NUMEROLOGY_DATA[numSum];
 
-                // 2. 西洋星座 [cite: 65]
+                // 2. 西洋星座 [cite: 64]
                 const monthDay = `${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
                 const zData = ZODIAC_DATA.find(z => {
                     if (z.start <= z.end) return monthDay >= z.start && monthDay <= z.end;
                     return monthDay >= z.start || monthDay <= z.end;
                 });
 
-                // 3. 東方生肖 [cite: 65]
-                const animal = CHINESE_ZODIAC_LIST[(year - 1900) % 12];
+                // 3. 東方生肖 [cite: 64]
+                const zodiacIndex = (year - 1900) % 12;
+                const animal = CHINESE_ZODIAC_LIST[zodiacIndex];
                 const aData = CHINESE_ZODIAC_DATA[animal];
 
-                // 渲染卡片 [cite: 78, 79]
+                // 渲染卡片 [cite: 67, 68]
                 const container = document.getElementById('results-container');
                 container.innerHTML = `
                     ${renderEnergyCard(`Life Path · ${nData.key}`, nData.name, numSum, nData)}
@@ -211,11 +212,10 @@
             }, 800);
         }
 
-        // --- 組件渲染器 [cite: 67-71] ---
+        // --- 組件渲染器 [cite: 66, 67, 68] ---
         function renderEnergyCard(subLabel, label, iconType, data) {
             let iconHtml = '';
             if (iconType === 'zodiac') {
-                // 使用簡化的 Lucide 圖示替代 SVG Path 以保持程式碼乾淨
                 iconHtml = `<i data-lucide="sun" class="w-8 h-8 ${data.color}"></i>`;
             } else if (typeof iconType === 'string' && isNaN(iconType)) {
                 iconHtml = `<span class="text-2xl font-bold ${data.color} opacity-80">${iconType}</span>`;
@@ -224,8 +224,9 @@
             }
 
             return `
-            <div class="group p-8 rounded-[3rem] bg-gradient-to-br ${data.cardBg} border border-white shadow-sm transition-all hover:shadow-xl hover:shadow-stone-200/40 hover:-translate-y-1 duration-500">
-                <div class="flex items-start gap-6">
+            <div class="group p-8 rounded-[3rem] ${data.bgColor} border border-white shadow-sm transition-all hover:shadow-xl hover:-translate-y-1 duration-500 relative overflow-hidden">
+                <div class="absolute inset-0 border-2 ${data.border} rounded-[3rem] pointer-events-none opacity-40 group-hover:opacity-100 transition-opacity"></div>
+                <div class="flex items-start gap-6 relative z-10">
                     <div class="w-16 h-16 rounded-2xl ${data.lightAccent} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-500 shadow-sm border border-white">
                         ${iconHtml}
                     </div>
@@ -234,10 +235,10 @@
                             ${subLabel}
                         </div>
                         <h3 class="text-2xl font-bold ${data.color}">${label}</h3>
-                        <p class="text-stone-400 text-sm leading-relaxed mt-2 italic font-light">${data.benefit}</p>
+                        <p class="text-stone-500 text-sm leading-relaxed mt-2 italic font-medium">${data.benefit}</p>
                     </div>
                 </div>
-                <div class="mt-6 relative pl-6 py-1 group/oil">
+                <div class="mt-6 relative pl-6 py-1 group/oil z-10">
                     <div class="absolute left-0 top-0 bottom-0 w-[2px] ${data.accent} opacity-20 group-hover/oil:opacity-100 transition-opacity duration-500"></div>
                     <div class="flex flex-col gap-1">
                         <div class="flex items-center gap-2">
@@ -256,7 +257,7 @@
             </div>`;
         }
 
-        // --- 百科彈窗邏輯 [cite: 85-88] ---
+        // --- 百科彈窗邏輯 [cite: 63, 68] ---
         function openLibrary() { 
             document.getElementById('library-modal').classList.remove('hidden'); 
             switchTab('num'); 
