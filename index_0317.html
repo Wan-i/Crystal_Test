@@ -43,11 +43,11 @@
         </div>
 
         <div id="input-panel" class="space-y-8">
-            <div class="bg-[#fcfbf9] p-10 rounded-[2.5rem] border border-stone-100 shadow-inner">
-                <label class="block text-[11px] font-bold text-stone-400 uppercase tracking-[0.3em] mb-8 text-center font-sans">
-                    Select Your Birth Date
+            <div class="bg-[#fffcf5] p-8 rounded-[2rem] border border-amber-100/50 shadow-inner">
+                <label class="block text-[11px] font-bold text-amber-700/50 uppercase tracking-[0.25em] mb-6 text-center font-sans">
+                    輸入您的出生日期
                 </label>
-                <input type="date" id="birthday-input" class="w-full bg-transparent border-b border-stone-200 px-2 py-4 text-2xl text-center focus:border-amber-400 outline-none transition-all text-[#5c564d] font-sans" />
+                <input type="date" id="birthday-input" class="w-full bg-transparent border-b-2 border-amber-100 px-2 py-4 text-2xl text-center focus:border-amber-400 outline-none transition-all text-[#5c564d]" />
             </div>
             <button onclick="handleCalculate()" id="submit-btn" class="w-full py-6 rounded-3xl bg-[#5c564d] hover:bg-[#4a453e] disabled:opacity-30 font-bold text-lg text-white transition-all shadow-xl shadow-stone-200 flex items-center justify-center gap-3 group relative overflow-hidden">
                 <span id="btn-content" class="flex items-center gap-3">
@@ -60,12 +60,12 @@
             <div id="results-container" class="space-y-10">
                 </div>
 
-            <div class="flex gap-4 mt-8">
-                <button onclick="resetApp()" class="flex-1 py-5 bg-stone-50 rounded-[2rem] text-stone-400 hover:text-stone-600 transition-colors text-xs font-bold tracking-widest uppercase flex items-center justify-center gap-2">
-                    <i data-lucide="refresh-cw" class="w-3 h-3"></i> Reset
+            <div class="flex gap-4 mt-4">
+                <button onclick="resetApp()" class="flex-1 py-4 bg-amber-50 rounded-2xl text-amber-800/60 hover:text-amber-800 transition-colors text-xs font-bold tracking-widest uppercase flex items-center justify-center gap-2 border border-amber-100 font-sans">
+                    <i data-lucide="refresh-cw" class="w-3 h-3"></i> 再算一次
                 </button>
-                <button onclick="openLibrary()" class="flex-[2] py-5 bg-[#5c564d] rounded-[2rem] text-white hover:bg-[#4a453e] transition-colors text-xs font-bold tracking-widest uppercase flex items-center justify-center gap-2 shadow-lg shadow-stone-200">
-                    <i data-lucide="book-open" class="w-4 h-4"></i> 探索能量圖鑑
+                <button onclick="openLibrary()" class="flex-1 py-4 bg-[#5c564d] rounded-2xl text-white hover:bg-[#4a453e] transition-colors text-xs font-bold tracking-widest uppercase flex items-center justify-center gap-2 shadow-lg font-sans">
+                    <i data-lucide="book-open" class="w-3 h-3"></i> 水晶百科
                 </button>
             </div>
         </div>
